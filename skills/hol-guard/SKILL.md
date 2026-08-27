@@ -15,13 +15,14 @@ Probe the real CLI:
 hol-guard --version
 ```
 
-If it is unavailable and runtime setup is in scope, install the isolated CLI:
+If it is unavailable and runtime setup is in scope, install the vetted release pin used by this skill:
 
 ```sh
-pipx install hol-guard
+uv tool install "hol-guard[cisco]==2.2.128"
+hol-guard --version
 ```
 
-If installation is not authorized or `pipx` is unavailable, stop and report the missing runtime rather than weakening the boundary.
+The pin is the official Hashgraph Online `v2.2.128` release and PyPI `hol-guard` distribution. Require the version check to report `2.2.128`; do not replace the pin with `latest`, a branch URL, or an unversioned package. If installation is not authorized or `uv` is unavailable, stop and report the missing runtime rather than weakening the boundary.
 
 Resolve support and the exact harness identifier from HOL Guard itself:
 
